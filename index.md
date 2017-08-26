@@ -1,4 +1,6 @@
 # How To Efficiently Process 2^100 List Variations - Full Benchmark Results
+Full source code of the project is available [here](https://github.com/chupanw/vbc/tree/iteration-optimization).
+
 
 ## Basic Iteration
 ### Benchmark code
@@ -152,20 +154,28 @@ FEList.list.sort(c);
 ## List Construction
 ### Benchmark code
 ```java
-list = new LinkedList<>();
+static void addThisMany(int n, LinkedList<Integer> l, int startValue) {
+    for (int i = 0; i < n; i++)
+        l.add(100*i + startValue);
+}
 
-int i = 0;
-int startValue = 0;
-if (i++ < numFeatures)
-    if (E1) addThisMany(10, list, (startValue++)*10);
-if (i++ < numFeatures)
-    if (E2) addThisMany(10, list, (startValue++)*10);
-if (i++ < numFeatures)
-    if (E3) addThisMany(10, list, (startValue++)*10);
-// ... So on to E100 ...
+public static LinkedList<Integer> list;
+public static void generate(Integer numFeatures) {
+    list = new LinkedList<>();
 
-// Ensure that list contains at least ten elements
-addThisMany(10, list, (startValue++)*10);
+    int i = 0;
+    int startValue = 0;
+    if (i++ < numFeatures)
+        if (E1) addThisMany(10, list, (startValue++)*10);
+    if (i++ < numFeatures)
+        if (E2) addThisMany(10, list, (startValue++)*10);
+    if (i++ < numFeatures)
+        if (E3) addThisMany(10, list, (startValue++)*10);
+    // ... So on to E100 ...
+
+    // Ensure that list contains at least ten elements
+    addThisMany(10, list, (startValue++)*10);
+}
 ```
 ### Results
 ![List Construction Plot](./memory.png)
