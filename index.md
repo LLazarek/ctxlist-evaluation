@@ -9,7 +9,7 @@ for (Integer el : FEList.list) {
 ```
 ### Results
 ![Basic Iteration Plot](./simpleIteration.png)
-<br></br>
+
 
 ## CheckStyle Iteration
 ### Benchmark code
@@ -20,7 +20,7 @@ for (someObj el : FEList.objList) {
 ```
 ### Results
 ![CheckStyle Iteration Plot](./expensiveIteration.png)
-<br></br>
+
 
 ## Iteration with Feature Condition
 ### Benchmark code
@@ -32,7 +32,7 @@ for (Integer el : FEList.list) {
 ```
 ### Results
 ![Iteration with Feature Condition Plot](./looptype3.png)
-<br></br>
+
 
 ## Iteration Reading Outer Variable
 ### Benchmark code
@@ -44,7 +44,7 @@ for (Integer el : FEList.list) {
 ```
 ### Results
 ![Iteration Reading Outer Variable Plot](./looptype4.png)
-<br></br>
+
 
 ## Iteration Modifying Outer Variable
 ### Benchmark code
@@ -57,7 +57,7 @@ for (Integer el : FEList.list) {
 ```
 ### Results
 ![Iteration Modifying Outer Variable Plot](./looptype2.png)
-<br></br>
+
 
 ## Finding Element
 ### Benchmark code
@@ -66,7 +66,7 @@ FEList.list.indexOf(610);
 ```
 ### Results
 ![Finding Element Plot](./findElement.png)
-<br></br>
+
 
 ## Removing Element
 ### Benchmark code
@@ -75,7 +75,7 @@ FEList.list.remove(Integer.valueOf(610));
 ```
 ### Results
 ![Removing Element Plot](./removeElement.png)
-<br></br>
+
 
 ## Random Access
 ### Benchmark code
@@ -84,7 +84,7 @@ System.out.println(FEList.list.get(6));
 ```
 ### Results
 ![Random Access Plot](./randomAccess.png)
-<br></br>
+
 
 ## Remove Index
 ### Benchmark code
@@ -93,7 +93,7 @@ System.out.println(FEList.list.remove(6));
 ```
 ### Results
 ![Remove Index Plot](./removeIndex.png)
-<br></br>
+
 
 ## Size Calculation
 ### Benchmark code
@@ -102,7 +102,7 @@ FEList.list.size();
 ```
 ### Results
 ![Size Calculation Plot](./size.png)
-<br></br>
+
 
 ## Sorting
 ### Benchmark code
@@ -118,7 +118,7 @@ FEList.list.sort(new Comparator() {
 ```
 ### Results
 ![Sorting Plot](./sort.png)
-<br></br>
+
 
 ## Variational Sorting
 ### Benchmark code
@@ -147,7 +147,7 @@ FEList.list.sort(c);
 ```
 ### Results
 ![Variational Sorting Plot](./sortType.png)
-<br></br>
+
 
 ## List Construction
 ### Benchmark code
@@ -169,4 +169,4 @@ addThisMany(10, list, (startValue++)*10);
 ```
 ### Results
 ![List Construction Plot](./memory.png)
-<br></br>
+

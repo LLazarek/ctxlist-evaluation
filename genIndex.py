@@ -126,7 +126,7 @@ if __name__ == '__main__':
     md = "# How To Efficiently Process 2^100 List Variations - Full Benchmark Results\n"
     for bench in benchmarks:
         md += "\n## {0}\n### Benchmark code\n```java\n{1}\n```\n\
-### Results\n![{0} Plot](./{2})\n<br></br>\n"\
+### Results\n![{0} Plot](./{2})\n\n"\
     .format(bench['name'], bench['code'], bench['plot'])
 
     with open('index.md', 'w') as f:
