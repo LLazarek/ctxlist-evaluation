@@ -1,129 +1,85 @@
-# How To Efficiently Process 2^100 List Variations - Full Benchmark Results
+#!python
 
-## Basic Iteration
-### Benchmark code
-```java
-for (Integer el : FEList.list) {
+benchmarks = [
+    {
+        'name':'Basic Iteration',
+        'code':"""for (Integer el : FEList.list) {
     System.out.println(el);
-}
-```
-# Results
-![Basic Iteration Plot](./simpleIteration.png)
-
-
-## CheckStyle Iteration
-### Benchmark code
-```java
-for (someObj el : FEList.objList) {
+}""",
+        'plot':'simpleIteration.png'
+    },
+    {
+        'name':'CheckStyle Iteration',
+        'code':"""for (someObj el : FEList.objList) {
     el.longOperation();
-}
-```
-# Results
-![CheckStyle Iteration Plot](./expensiveIteration.png)
-
-
-## Iteration with Feature Condition
-### Benchmark code
-```java
-for (Integer el : FEList.list) {
+}""",
+        'plot':'expensiveIteration.png'
+    },
+    {
+        'name':'Iteration with Feature Condition',
+        'code':"""for (Integer el : FEList.list) {
     if (FEList.E1)
         System.out.println(el);
-}
-```
-# Results
-![Iteration with Feature Condition Plot](./looptype3.png)
-
-
-## Iteration Reading Outer Variable
-### Benchmark code
-```java
-Integer n = 42;
+}""",
+        'plot':'looptype3.png'
+    },
+    {
+        'name':'Iteration Reading Outer Variable',
+        'code':"""Integer n = 42;
 for (Integer el : FEList.list) {
     System.out.println(el + n);
-}
-```
-# Results
-![Iteration Reading Outer Variable Plot](./looptype4.png)
-
-
-## Iteration Modifying Outer Variable
-### Benchmark code
-```java
-Integer sum = 0;
+}""",
+        'plot':'looptype4.png'
+    },
+    {
+        'name':'Iteration Modifying Outer Variable',
+        'code':"""Integer sum = 0;
 for (Integer el : FEList.list) {
     System.out.println(el);
     sum += el;
-}
-```
-# Results
-![Iteration Modifying Outer Variable Plot](./looptype2.png)
-
-
-## Finding Element
-### Benchmark code
-```java
-FEList.list.indexOf(610);
-```
-# Results
-![Finding Element Plot](./findElement.png)
-
-
-## Removing Element
-### Benchmark code
-```java
-FEList.list.remove(Integer.valueOf(610));
-```
-# Results
-![Removing Element Plot](./removeElement.png)
-
-
-## Random Access
-### Benchmark code
-```java
-System.out.println(FEList.list.get(6));
-```
-# Results
-![Random Access Plot](./randomAccess.png)
-
-
-## Remove Index
-### Benchmark code
-```java
-System.out.println(FEList.list.remove(6));
-```
-# Results
-![Remove Index Plot](./removeIndex.png)
-
-
-## Size Calculation
-### Benchmark code
-```java
-FEList.list.size();
-```
-# Results
-![Size Calculation Plot](./size.png)
-
-
-## Sorting
-### Benchmark code
-```java
-FEList.list.sort(new Comparator() {
+}""",
+        'plot':'looptype2.png'
+    },
+    {
+        'name':'Finding Element',
+        'code':"""FEList.list.indexOf(610);""",
+        'plot':'findElement.png'
+    },
+    {
+        'name':'Removing Element',
+        'code':"""FEList.list.remove(Integer.valueOf(610));""",
+        'plot':'removeElement.png'
+    },
+    {
+        'name':'Random Access',
+        'code':"""System.out.println(FEList.list.get(6));""",
+        'plot':'randomAccess.png'
+    },
+    {
+        'name':'Remove Index',
+        'code':"""System.out.println(FEList.list.remove(6));""",
+        'plot':'removeIndex.png'
+    },
+    {
+        'name':'Size Calculation',
+        'code':"""FEList.list.size();""",
+        'plot':'size.png'
+    },
+    {
+        'name':'Sorting',
+        'code':"""FEList.list.sort(new Comparator() {
     @Override
     public int compare(Object o1, Object o2) {
         Integer i1 = (Integer) o1;
         Integer i2 = (Integer) o2;
         return i1 - i2;
     }
-});
-```
-# Results
-![Sorting Plot](./sort.png)
-
-
-## Variational Sorting
-### Benchmark code
-```java
-Comparator<Integer> c;
+});""",
+        'plot':'sort.png'
+    },
+    {
+        'name':'Variational Sorting',
+        'code':"""Comparator<Integer> c;
 if (FEList.E1 || FEList.E50)
     c = new Comparator() {
     @Override
@@ -143,16 +99,12 @@ else
     }
 };
 
-FEList.list.sort(c);
-```
-# Results
-![Variational Sorting Plot](./sortType.png)
-
-
-## List Construction
-### Benchmark code
-```java
-list = new LinkedList<>();
+FEList.list.sort(c);""",
+        'plot':'sortType.png'
+    },
+    {
+        'name':'List Construction',
+        'code':"""list = new LinkedList<>();
 
 int i = 0;
 int startValue = 0;
@@ -358,8 +310,17 @@ if (i++ < numFeatures)
     if (E100) addThisMany(10, list, (startValue++)*10);
 
 // Ensure that list contains at least ten elements
-addThisMany(10, list, (startValue++)*10);
-```
-# Results
-![List Construction Plot](./memory.png)
+addThisMany(10, list, (startValue++)*10);""",
+        'plot':'memory.png'
+    }
+]
 
+if __name__ == '__main__':
+    md = "# How To Efficiently Process 2^100 List Variations - Full Benchmark Results\n"
+    for bench in benchmarks:
+        md += "\n## {0}\n### Benchmark code\n```java\n{1}\n```\n\
+# Results\n![{0} Plot](./{2})\n\n"\
+    .format(bench['name'], bench['code'], bench['plot'])
+
+    with open('index.md', 'w') as f:
+        f.write(md)
