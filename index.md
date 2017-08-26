@@ -7,7 +7,7 @@ for (Integer el : FEList.list) {
     System.out.println(el);
 }
 ```
-# Results
+### Results
 ![Basic Iteration Plot](./simpleIteration.png)
 
 
@@ -18,7 +18,7 @@ for (someObj el : FEList.objList) {
     el.longOperation();
 }
 ```
-# Results
+### Results
 ![CheckStyle Iteration Plot](./expensiveIteration.png)
 
 
@@ -30,7 +30,7 @@ for (Integer el : FEList.list) {
         System.out.println(el);
 }
 ```
-# Results
+### Results
 ![Iteration with Feature Condition Plot](./looptype3.png)
 
 
@@ -42,7 +42,7 @@ for (Integer el : FEList.list) {
     System.out.println(el + n);
 }
 ```
-# Results
+### Results
 ![Iteration Reading Outer Variable Plot](./looptype4.png)
 
 
@@ -55,7 +55,7 @@ for (Integer el : FEList.list) {
     sum += el;
 }
 ```
-# Results
+### Results
 ![Iteration Modifying Outer Variable Plot](./looptype2.png)
 
 
@@ -64,7 +64,7 @@ for (Integer el : FEList.list) {
 ```java
 FEList.list.indexOf(610);
 ```
-# Results
+### Results
 ![Finding Element Plot](./findElement.png)
 
 
@@ -73,7 +73,7 @@ FEList.list.indexOf(610);
 ```java
 FEList.list.remove(Integer.valueOf(610));
 ```
-# Results
+### Results
 ![Removing Element Plot](./removeElement.png)
 
 
@@ -82,7 +82,7 @@ FEList.list.remove(Integer.valueOf(610));
 ```java
 System.out.println(FEList.list.get(6));
 ```
-# Results
+### Results
 ![Random Access Plot](./randomAccess.png)
 
 
@@ -91,7 +91,7 @@ System.out.println(FEList.list.get(6));
 ```java
 System.out.println(FEList.list.remove(6));
 ```
-# Results
+### Results
 ![Remove Index Plot](./removeIndex.png)
 
 
@@ -100,7 +100,7 @@ System.out.println(FEList.list.remove(6));
 ```java
 FEList.list.size();
 ```
-# Results
+### Results
 ![Size Calculation Plot](./size.png)
 
 
@@ -116,7 +116,7 @@ FEList.list.sort(new Comparator() {
     }
 });
 ```
-# Results
+### Results
 ![Sorting Plot](./sort.png)
 
 
@@ -145,7 +145,7 @@ else
 
 FEList.list.sort(c);
 ```
-# Results
+### Results
 ![Variational Sorting Plot](./sortType.png)
 
 
@@ -360,6 +360,6 @@ if (i++ < numFeatures)
 // Ensure that list contains at least ten elements
 addThisMany(10, list, (startValue++)*10);
 ```
-# Results
+### Results
 ![List Construction Plot](./memory.png)
 
